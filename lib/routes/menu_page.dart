@@ -39,10 +39,10 @@ class _MenuPage extends State<MenuPage> {
         onTap: _navigateBottomBar,
         type: BottomNavigationBarType.fixed,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_bag_outlined), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.explore_outlined), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.chat_outlined), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.person_outline_outlined), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_bag_outlined), label: 'Shop'),
+          BottomNavigationBarItem(icon: Icon(Icons.explore_outlined), label: 'Explore'),
+          BottomNavigationBarItem(icon: Icon(Icons.chat_outlined), label: 'Message'),
+          BottomNavigationBarItem(icon: Icon(Icons.person_outline_outlined), label: 'Me'),
         ],
       ),
     );

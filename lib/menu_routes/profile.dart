@@ -18,10 +18,10 @@ class _ProfileState extends State<Profile> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text('',
+        title: Text('LOG IN/ REGISTER',
         style: TextStyle(
           color: Colors.black,
-          fontSize: 20,
+          fontSize: 18,
           fontWeight: FontWeight.bold),
           ),
           actions: [
@@ -67,10 +67,27 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
               ),
-              // Add more Card widgets or other content here if needed
+              Text("My Orders"),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Card(
+                  color: Colors.grey,
+                  elevation: 0,
+                  child: SizedBox(
+                    height: 100.0,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text('Your content goes here'),
+                        ),
             ],
           ),
         ),
+      ),
+              ),
+            ],
+          ),
+      ),
       ),
     );
   }

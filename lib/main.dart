@@ -1,3 +1,4 @@
+import 'package:aeyde_app/modules/login.dart';
 import 'package:aeyde_app/modules/settingpage.dart';
 import 'package:flutter/material.dart';
 import 'routes/menu_page.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/menu_page': (context) => const MenuPage(),
         '/settings_page': (context) => const SettingsPage(),
+        '/login_page': (context) => const LoginPage(),
       },
     );
   }

@@ -1,4 +1,4 @@
-import 'package:aeyde_app/menu_routes/products.dart';
+import 'package:aeyde_app/modules/products.dart';
 import 'package:aeyde_app/modules/imageslider.dart';
 import 'package:aeyde_app/modules/product_tile.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,7 @@ class _ShopPageState extends State<ShopPage> {
       imagePath: "assets/images/lissy.jpg",
       rating: "4.3",  
       ),
-       ProductPage (
+      ProductPage (
       name: "Ankle Boots" , 
       price: "28,000",
       imagePath: "assets/images/ankle_boots.png",
