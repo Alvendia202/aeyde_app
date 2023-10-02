@@ -1,5 +1,5 @@
+import 'package:aeyde_app/modules/settingpage.dart';
 import 'package:flutter/material.dart';
-import 'routes/intro_page.dart';
 import 'routes/menu_page.dart';
 
 void main() {
@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build (BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const IntroPage(),
+      home: const MenuPage(),
       routes: {
-        '/intro_page': (context) => const IntroPage(),
         '/menu_page': (context) => const MenuPage(),
+        '/settings_page': (context) => const SettingsPage(),
       },
     );
   }

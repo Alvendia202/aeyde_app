@@ -1,7 +1,7 @@
-import 'package:aeyde_app/menu_routes/category.dart';
-import 'package:aeyde_app/menu_routes/chat.dart';
+import 'package:aeyde_app/menu_routes/inboxpage.dart';
 import 'package:aeyde_app/menu_routes/profile.dart';
 import 'package:aeyde_app/menu_routes/shop.dart';
+import 'package:aeyde_app/menu_routes/explorepage.dart';
 import 'package:flutter/material.dart';
 
 class MenuPage extends StatefulWidget {
@@ -23,8 +23,8 @@ class _MenuPage extends State<MenuPage> {
 
   final List<Widget> _pages = [
      const ShopPage(),
-     const Category(),
-     const Chat(),
+     const ExplorePage(),
+     const InboxPage(),
      const Profile(),
   ];
 
@@ -33,14 +33,16 @@ class _MenuPage extends State<MenuPage> {
     return Scaffold(
       body: _pages [_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        selectedIconTheme: IconThemeData(size: 28),
+         unselectedIconTheme: IconThemeData(size: 28),
         currentIndex: _selectedIndex,
         onTap: _navigateBottomBar,
         type: BottomNavigationBarType.fixed,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.shop), label: 'Shop'),
-          BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Category'),
-          BottomNavigationBarItem(icon: Icon(Icons.message), label: 'Chat'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Me'),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_bag_outlined), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.explore_outlined), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.chat_outlined), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.person_outline_outlined), label: ''),
         ],
       ),
     );
