@@ -1,16 +1,4 @@
 # aeyde_app
+![image](https://github.com/Alvendia202/aeyde_app/assets/112410048/9f834cc2-acc2-4023-bbed-f369bde5f6b6)
+![image](https://github.com/Alvendia202/aeyde_app/assets/112410048/3554325b-2713-4e14-ac16-abe1477c79cf)
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
