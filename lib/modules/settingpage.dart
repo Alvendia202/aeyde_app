@@ -20,7 +20,7 @@ class SettingsPage extends StatelessWidget {
               ),
                 onPressed: (){
                 Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => SettingsPage()
+              MaterialPageRoute(builder: (context) => LoginPage()
               ),
               );
             },
@@ -29,6 +29,125 @@ class SettingsPage extends StatelessWidget {
       SettingsCard(
       title: "Location",
       leadingIcon: Icons.person_2_outlined,
+      size: 10,
+        actionButton: IconButton(
+              icon: const Icon(Icons.arrow_forward_ios,
+              size: 10,
+              color: Color.fromARGB(255, 8, 7, 7),
+              ),
+                onPressed: (){
+                Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => SettingsPage()
+              ),
+              );
+            },
+        ), onPressed: () {  }
+      ),
+      SettingsCard(
+      title: "Language",
+      leadingIcon: Icons.book_online_rounded,
+      size: 10,
+        actionButton: IconButton(
+              icon: const Icon(Icons.arrow_forward_ios,
+              size: 10,
+              color: Color.fromARGB(255, 8, 7, 7),
+              ),
+                onPressed: (){
+                Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => LoginPage()
+              ),
+              );
+            },
+        ), onPressed: () {  }
+      ),
+      SettingsCard(
+      title: "Currency",
+      leadingIcon: Icons.money_off_rounded,
+      size: 10,
+        actionButton: IconButton(
+              icon: const Icon(Icons.arrow_forward_ios,
+              size: 10,
+              color: Color.fromARGB(255, 8, 7, 7),
+              ),
+                onPressed: (){
+                Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => LoginPage()
+              ),
+              );
+            },
+        ), onPressed: () {  }
+      ),
+      SettingsCard(
+      title: "Privacy & Cookie Policy",
+      leadingIcon: Icons.person_2_outlined,
+      size: 10,
+        actionButton: IconButton(
+              icon: const Icon(Icons.arrow_forward_ios,
+              size: 10,
+              color: Color.fromARGB(255, 8, 7, 7),
+              ),
+                onPressed: (){
+                Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => LoginPage()
+              ),
+              );
+            },
+        ), onPressed: () {  }
+      ),
+      SettingsCard(
+      title: "Terms & Condition",
+      leadingIcon: Icons.person_2_outlined,
+      size: 10,
+        actionButton: IconButton(
+              icon: const Icon(Icons.arrow_forward_ios,
+              size: 10,
+              color: Color.fromARGB(255, 8, 7, 7),
+              ),
+                onPressed: (){
+                Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => LoginPage()
+              ),
+              );
+            },
+        ), onPressed: () {  }
+      ),
+      SettingsCard(
+      title: "Rating & Feedback",
+      leadingIcon: Icons.person_2_outlined,
+      size: 10,
+        actionButton: IconButton(
+              icon: const Icon(Icons.arrow_forward_ios,
+              size: 10,
+              color: Color.fromARGB(255, 8, 7, 7),
+              ),
+                onPressed: (){
+                Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => LoginPage()
+              ),
+              );
+            },
+        ), onPressed: () {  }
+      ),
+      SettingsCard(
+      title: "Connect to Us",
+      leadingIcon: Icons.person_2_outlined,
+      size: 10,
+        actionButton: IconButton(
+              icon: const Icon(Icons.arrow_forward_ios,
+              size: 10,
+              color: Color.fromARGB(255, 8, 7, 7),
+              ),
+                onPressed: (){
+                Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => LoginPage()
+              ),
+              );
+            },
+        ), onPressed: () {  }
+      ),
+      SettingsCard(
+      title: "About Aeyde",
+      leadingIcon: Icons.favorite_outline_rounded,
       size: 10,
         actionButton: IconButton(
               icon: const Icon(Icons.arrow_forward_ios,
@@ -94,12 +213,8 @@ class SettingsTile extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Expanded(
-            child: ListView(
-              children: <Widget>[
-                SizedBox(
-                  height: 50.0,
-          child: Card(
+        
+           Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -122,12 +237,10 @@ class SettingsTile extends StatelessWidget {
               ),
             ),
           ),
+        ],
                 ),
-        ],
-      ),
-          ),
-        ],
-      ),
+        
+     
     );
   }
 }
