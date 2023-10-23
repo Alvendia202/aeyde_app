@@ -19,3 +19,4 @@ class ProductPage {
   // ignore: unused_element
   String get _rating => rating;
 }
+

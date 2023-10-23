@@ -2,81 +2,79 @@ import 'package:aeyde_app/routes/menu_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-   LoginPage({ Key? key }) : super(key: key);
+  const LoginPage({ Key? key}) : super(key: key);
 
   @override
-  State <LoginPage> createState() => _LoginPageState();
-  // ignore: unused_field
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage>{
-  TextEditingController controller = new TextEditingController();
-  
-  @override
-  Widget build(BuildContext context){    
-    var _formKey;
+class _LoginPageState extends State<LoginPage> {
+  get color => null;
+  get _formKey => null;
+
+@override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(
-          'aeyde',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+        backgroundColor: Colors.white,
+        title: Center(
+          child: Image.asset('assets/images/aeyde.png',
+        width: 100, 
+        height: 40,
+      ),
         ),
-        centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+          icon: const Icon(Icons.arrow_back_ios, size: 12, color: Colors.black),
           onPressed: () {
-            Navigator.popAndPushNamed(context, '/search_page');
+            Navigator.popAndPushNamed(context, '/settings_page');
           },
         ),
       ),
       body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: double.infinity,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
+            children: <Widget>[
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
+                children: [
                   Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 40),
-                      child: Form(
-                        key: _formKey,
-                        child: Column(
+                  padding: const EdgeInsets.symmetric(horizontal: 35),
+                child: Column(
                           children: [
                             Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 35), 
-                              child: Container(
-                              width: 380.0, 
-                              height: 40.0, 
-                                child: TextFormField(
-                                  keyboardType: TextInputType.emailAddress,
-                                  decoration: InputDecoration(
-                                    hintText: 'Enter email',
-                                    prefixIcon: Icon(Icons.email_outlined),
-                                    border: OutlineInputBorder(),
-                                  ),
-                                  onChanged: (String value) {},
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty)
-                                      return 'Email required';
-                                    return null;
-                                  },
-                                )
-                                ),
-                            ),
+                child: 
+                  Container(
+  width: 500.0,
+  height: 40.0,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                          borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 15.0, 
+                  ),
+                ),
+                        hintText: 'Email address or Username',
+                        hintStyle: TextStyle(
+                          color: const Color.fromARGB(255, 143, 143, 143),
+                          fontSize: 12.0,
+                          ),
+                          prefixIcon: Icon(Icons.person_2_rounded,
+                          size: 15,
+                          color:Colors.black,
+                        ),  
+                        contentPadding: EdgeInsets.symmetric(vertical: 15.0),     
+              ),
+              
+            ),
+            ),
+        ),
                             SizedBox(height: 10.0),
                                 MaterialButton(
-                                  minWidth: 400.0,
+                                  minWidth: 370.0,
                                   height: 40,
                                   onPressed: () {
                                     if (_formKey.currentState!.validate()) {
@@ -92,55 +90,29 @@ class _LoginPageState extends State<LoginPage>{
                                   elevation: 0,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(5)),
-                                  child: Text(
-                                    "LOG IN ",
-                                    style: TextStyle(
-                                        color: Colors. white,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 18),
-                                  ),
+                                  child: Padding(
+                                      padding: const EdgeInsets.all(12.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          Text(
+                                            'LOGIN',
+                                            style: TextStyle(fontSize: 12,
+                                            color: Colors.white),
+
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                 ),
                                 SizedBox(height: 10.0),
                                 Text(
                                   "or continue with"
                                 ),
-                                SizedBox(height: 10.0),
+                                SizedBox(height: 10.0
+                                ),
                                 MaterialButton(
-                                  minWidth: 400.0,
-                                  height: 40.0,
-                                  onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
-                                     Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => MenuPage()),
-                                  );
-                                }
-                              },
-                                  color: Colors.grey,
-                                  elevation: 0,
-                                  shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: 
-                                    Icon(Icons.star),
-                                    ),
-                                   Text(
-                                        "Continue with Apple",
-                                        style: TextStyle(
-                                          fontSize: 18,
-
-                                        ),
-                                      ),
-                                  ],
-                                ),
-                                ),
-                  ),
-                ],
-                                  ),
-                                ),
-          SizedBox(height: 10.0),
-                                MaterialButton(
-                                  minWidth: 400.0,
+                                  minWidth: 370.0,
                                   height: 40,
                                   onPressed: () {
                                     if (_formKey.currentState!.validate()) {
@@ -152,21 +124,79 @@ class _LoginPageState extends State<LoginPage>{
                                       return;
                                     }
                                   },
-                                  color: Colors.grey,
+                                  color: Color.fromARGB(255, 224, 224, 224),
                                   elevation: 0,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(5)),
-                                  child: Text(
-                                    "Continue with Apple",
-                                    style: TextStyle(
-                                        
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 18),
-                                  ),
+                                  child: Padding(
+                                      padding: const EdgeInsets.all(12.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          Image.asset(
+                                            'assets/images/google.png', 
+                                            width: 30,
+                                            height: 15, 
+                                          ),
+                                          SizedBox(width: 4), 
+                                          Text(
+                                            'continue with Google',
+                                            style: TextStyle(fontSize: 12,
+                                            color: Colors.black),
+
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                ),                                        
+                                SizedBox(height: 10.0),
+                                MaterialButton(
+                                  minWidth: 370.0,
+                                  height: 40,
+                                  onPressed: () {
+                                    if (_formKey.currentState!.validate()) {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  MenuPage()));
+                                      return;
+                                    }
+                                  },
+                                  color: Color.fromARGB(255, 224, 224, 224),
+                                  elevation: 0,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child: Padding(
+                                      padding: const EdgeInsets.all(12.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          Image.asset(
+                                            'assets/images/apple.png', 
+                                            width: 30,
+                                            height: 15, 
+                                          ),
+                                          SizedBox(width: 4), 
+                                          Text(
+                                            'continue with Apple',
+                                            style: TextStyle(fontSize: 12,
+                                            color: Colors.black),
+
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                 ),
-          ],
-      ),
-      ),
-    );
-  }
+                                  ],
+                                ),
+                  ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }
 }

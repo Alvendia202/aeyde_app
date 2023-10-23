@@ -1,6 +1,8 @@
+import 'package:aeyde_app/menu_routes/inboxpage.dart';
 import 'package:aeyde_app/modules/products.dart';
 import 'package:aeyde_app/modules/imageslider.dart';
 import 'package:aeyde_app/modules/product_tile.dart';
+import 'package:aeyde_app/routes/theme.dart';
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:google_fonts/google_fonts.dart';
@@ -38,6 +40,18 @@ class _ShopPageState extends State<ShopPage> {
       imagePath: "assets/images/slingback.jpg",
       rating: "4.3",  
       ),
+      ProductPage (
+      name: "Mules" , 
+      price: "26,000",
+      imagePath: "assets/images/mules.jpg",
+      rating: "4.3",  
+      ),
+       ProductPage (
+      name: "Sling Back" , 
+      price: "26,000",
+      imagePath: "assets/images/slingback.jpg",
+      rating: "4.3",  
+      ),
   ];
 
   @override
@@ -46,82 +60,78 @@ class _ShopPageState extends State<ShopPage> {
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-          actions: [
+        backgroundColor: Colors.white,
+        title: Center(
+          child: Image.asset('assets/images/aeyde.png',
+        width: 100, 
+        height: 40,
+      ),
+        ),
+        leading: IconButton(
+    icon: Icon(Icons.mail_outlined,
+    color: Colors.black,
+    size: 20),
+    onPressed: () {
+      // Add your onPressed functionality here.
+    },
+  ),
+  actions: [
           IconButton(
             onPressed: (){
             },
-              icon: const Icon(Icons.favorite_border_outlined,
+              icon: const Icon(Icons.search_rounded,
               color: Colors.black,
+              size: 20,
               ),
             ),
           IconButton (
             onPressed: () {
+              Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => InboxPage()
+              ),
+              );
             },
-            icon: const Icon(Icons.shopping_cart_outlined,
+            icon: const Icon(Icons.favorite_outline_rounded,
             color: Colors.black,
+            size: 20,
             ),
           ),
         ],
-        title: Container(
-                width: double.infinity,
-                height: 40,
-                color: Colors.white,
-                child: Center(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                          color: Colors.transparent, 
-                          width: 10.0, 
+        ),
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [titleTextColor, contentTextColor],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: const [0.1, 0.9],
                   ),
-                ),
-                        hintText: 'search here',
-                        hintStyle: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 13.0,
-                          ),
-                          suffixIcon: Icon(Icons.search,
-                          color:Colors.black,
-                        ),       
-              ),
-            ),
-            ),
-        ),
-        ),
-        body: SingleChildScrollView (
-            child:  SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-              children: [
-             SlideImages(imgList: imgList),
-                 
-             Expanded(
-              child: GridView.custom(
+                  ),
+                  child: SingleChildScrollView(
+             child: Column(
+                children: <Widget>[
+                    SlideImages(imgList: imgList),
+                GridView.builder(
+                shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisSpacing: 5,
-                  mainAxisSpacing: 5,
+                  crossAxisSpacing: 2,
+                  mainAxisSpacing: 2,
+                  mainAxisExtent: 315,
                   crossAxisCount: 2, 
                 ),
-                childrenDelegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
-                return Expanded(
-                  child: ProductTile( productPage: Products[index], product: null,),
-                );
-              },
+                itemCount: Products.length,
+                itemBuilder: (BuildContext context, int index) {
+                return ProductTile(
+                  productPage: Products[index],
+                  Products: null,
+                 );
+               },
+             ),
+            ],
+          ), 
+        ),
       ),
-                ),
-             ), 
-             ],
-              ),
-             ),
-             ),
-        );  
+    );
   }
 }

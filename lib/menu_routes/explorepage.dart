@@ -1,49 +1,89 @@
+import 'package:card_swiper/card_swiper.dart';
+import 'package:aeyde_app/modules/explorecard.dart';
+import 'package:aeyde_app/modules/exploredetail.dart';
+import 'package:aeyde_app/modules/exploreheader.dart';
+import 'package:aeyde_app/modules/explorelist.dart';
+import 'package:aeyde_app/routes/theme.dart';
 import 'package:flutter/material.dart';
 
-class ExplorePage extends StatefulWidget {
-  const ExplorePage({ Key? key }) : super(key: key);
+class ExplorePage extends StatelessWidget {
+  const ExplorePage({Key? key}) : super(key: key);
 
-  @override
-  // ignore: library_private_types_in_public_api
-  _ExplorePageState createState() => _ExplorePageState();
-}
-
-class _ExplorePageState extends State<ExplorePage> {
-  @override
-  Widget build(BuildContext context) {    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-      appBar: AppBar(
+   @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
-        elevation: 0,
-       title: Container(
-                width: double.infinity,
-                height: 40,
-                color: Colors.white,
-                child: Center(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                          color: Colors.transparent, 
-                          width: 10.0, 
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [titleTextColor, contentTextColor],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: const [0.1, 0.9],
                   ),
-                ),
-                        hintText: 'search here',
-                        hintStyle: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 13.0,
-                          ),
-                          suffixIcon: Icon(Icons.search,
-                          color:Colors.black,
-                        ),       
+                  ),
+              child: SafeArea(
+              child: Column(
+                children: <Widget>[
+                const ExploreWidget(),
+                Expanded( 
+                  child: SingleChildScrollView(
+                  child: SizedBox(
+                    height: 600,
+                    child: Swiper(
+                    itemCount: ExploreInfo.length,
+                    itemWidth: MediaQuery.of(context).size.width,
+                    itemHeight: MediaQuery.of(context).size.height,
+                    layout: SwiperLayout.TINDER,
+                    pagination: SwiperPagination(
+                        builder: DotSwiperPaginationBuilder(
+                            color: Colors.white,
+                            activeColor: Colors.white,
+                            activeSize: 12,
+                            space: 4)),
+                            itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                  pageBuilder: (context, animation,
+                                      secondaryAnimation) =>
+                                        DetailsPage(
+                                          explorelist: explorelist [index])));
+                                          },
+                                          child: Stack(
+                                            children: [
+                                              Column(
+                                                children: [
+                                                  const SizedBox(
+                                                    height: 100,
+                                                  ),
+                                CustomCard(
+                                  name: explorelist[index].name,
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: Hero(
+                                  tag: explorelist[index].position,
+                                  child:
+                                      Image.asset(explorelist[index].iconImage)),
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                  ),
               ),
-            ),
-            ),
-        ),
-      ),
-          ),
-  );
-  }
+                ),
+                ),
+                      ],
+              ),
+              ),
+              ),
+                    );
+}
 }

@@ -41,6 +41,13 @@ dependencies:
   http: ^1.1.0
   flutter_native_splash: ^2.2.19
   carousel_slider: ^4.2.1
+  get: ^4.6.6
+  rive: ^0.11.17
+  font_awesome_flutter: 
+  fluttertoast: 
+  card_swiper: ^3.0.1
+  ionicons: ^0.2.2
+  persistent_bottom_nav_bar: ^4.0.2
   
 
 dev_dependencies:
@@ -81,6 +88,13 @@ flutter:
     - assets/images/front.jpg 
     - assets/images/front3.jpg
     - assets/images/aeyde.png
+    - assets/images/google.png
+    - assets/images/apple.png
+    - assets/images/new.png
+    - assets/images/mag.png
+    - assets/images/col.png
+    - assets/images/care.png
+    - assets/images/about.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

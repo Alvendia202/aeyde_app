@@ -1,5 +1,6 @@
+import 'package:aeyde_app/menu_routes/cartpage.dart';
 import 'package:aeyde_app/modules/login.dart';
-import 'package:aeyde_app/modules/settingpage.dart';
+import 'package:aeyde_app/modules/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'routes/menu_page.dart';
 
@@ -14,11 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build (BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const MenuPage(),
+      home: MenuPage(),
       routes: {
-        '/menu_page': (context) => const MenuPage(),
+        '/menu_page': (context) => MenuPage(),
         '/settings_page': (context) => const SettingsPage(),
-        '/login_page': (context) =>  LoginPage(),
+        '/login_page': (context) =>  const LoginPage(),
+        '/cart_page' : (context) =>  const CartPage(),
       },
     );
   }
