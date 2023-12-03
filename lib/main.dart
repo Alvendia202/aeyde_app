@@ -1,11 +1,22 @@
-import 'package:aeyde_app/menu_routes/cartpage.dart';
-import 'package:aeyde_app/modules/login.dart';
-import 'package:aeyde_app/modules/settings_page.dart';
+import 'package:aeyde_app/buttom_sheets/userprofile/list.dart';
+import 'package:aeyde_app/pages/cartpage.dart';
+import 'package:aeyde_app/pages/shop.dart';
+import 'package:aeyde_app/routes/shop_routes/products_page/productlist.dart';
+import 'package:aeyde_app/pages/settings_page.dart';
+import 'package:aeyde_app/pages/menu_page.dart';
 import 'package:flutter/material.dart';
-import 'routes/menu_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ProductList()),
+        ChangeNotifierProvider(create: (context) => SettingsList()), 
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -19,8 +30,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/menu_page': (context) => MenuPage(),
         '/settings_page': (context) => const SettingsPage(),
-        '/login_page': (context) =>  const LoginPage(),
         '/cart_page' : (context) =>  const CartPage(),
+        '/shopPage': (ctx) => const ShopPage(),
       },
     );
   }
